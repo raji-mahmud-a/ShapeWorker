@@ -5,242 +5,217 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ShapeWorker Documentation</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  
 </head>
 <body class="bg-gradient-to-br from-purple-800 to-indigo-700 text-gray-800 font-sans">
   <!-- Header -->
   <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between flex-col md:flex-row items-center space-y-6">
-      <h1 class="text-2xl font-bold">shapeWorker</h1>
-      <nav class="space-x-6">
-        <a href="#intro" class="hover:text-gray-200">Introduction</a>
-        <a href="#classes" class="hover:text-gray-200">Classes</a>
-        <a href="#examples" class="hover:text-gray-200">Examples</a>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+      <div class="flex items-center justify-between">
+        <h1 class="text-xl sm:text-2xl font-bold">ShapeWorker</h1>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white" aria-expanded="false" aria-controls="menu" aria-label="Toggle navigation">
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <nav class="hidden md:flex gap-6" aria-label="Primary">
+          <a href="#intro" class="hover:text-gray-200">Introduction</a>
+          <a href="#usage" class="hover:text-gray-200">Usage</a>
+          <a href="#examples" class="hover:text-gray-200">Examples</a>
+        </nav>
+      </div>
+      <nav id="menu" class="hidden md:hidden mt-3 flex-col gap-3" aria-label="Mobile">
+        <a href="#intro" class="block py-2 px-2 rounded hover:bg-indigo-500">Introduction</a>
+        <a href="#usage" class="block py-2 px-2 rounded hover:bg-indigo-500">Usage</a>
+        <a href="#examples" class="block py-2 px-2 rounded hover:bg-indigo-500">Examples</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section id="intro">
-    <div class="max-w-6xl mx-auto px-6 py-16 text-center">
-      <h2 class="text-4xl font-extrabold text-white ">Shape Worker Documentation</h2>
-      <p class="mt-4 text-lg text-white max-w-2xl mx-auto">
-        A simple JavaScript library for working with geometric shapes. Provides methods for calculating
-        area, perimeter, and more across common 2D shapes.
+  <section id="intro" class="scroll-mt-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">ShapeWorker Documentation</h2>
+      <p class="mt-4 text-base sm:text-lg text-white/95 max-w-2xl mx-auto">
+        A consolidated JavaScript library for working with geometric shapes. Provides methods for calculating
+        area, perimeter, surface area, volume, and more across 2D and 3D shapes using a single class API.
       </p>
     </div>
   </section>
 
-  <!-- Classes Documentation -->
-  <main id="classes" class="max-w-6xl mx-auto px-6 py-12 space-y-12">
-    <!-- Installation Section -->
-<section id="install" class="max-w-6xl mx-auto">
+  <!-- Usage Section -->
+  <section id="usage" class="scroll-mt-24 px-4">
+    <div class="max-w-6xl m-auto px-4 sm:px-6 py-8 sm:py-12 bg-white/95 backdrop-blur rounded-xl shadow space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-bold text-indigo-700">Installation</h2>
+      <p class="text-gray-700">Include via CDN or ES Module import:</p>
+      <h3 class="text-lg sm:text-xl font-semibold text-indigo-600">CDN</h3>
+      <pre class="bg-gray-900 text-green-200 text-sm sm:text-base p-4 rounded-lg overflow-x-auto"><code>&lt;script src="https://mahmud-links.pxxl.xyz/shapeWorker.js"&gt;&lt;/script&gt;</code></pre>
+      <h3 class="text-lg sm:text-xl font-semibold text-indigo-600">Import</h3>
+      <pre class="bg-gray-900 text-green-200 text-sm sm:text-base p-4 rounded-lg overflow-x-auto"><code>import ShapeWorker from "./shapeWorker.js";</code></pre>
+      <p class="text-gray-600 mt-2">
+        Instantiate <code>new ShapeWorker("shape", ...params)</code> with the shape name and parameters.
+      </p>
+    </div>
+  </section>
 
-  <div class="mt-6 bg-white rounded-xl shadow p-6">  <h2 class="text-3xl font-bold text-indigo-700">Installation</h2>
-  <p class="mt-4 text-gray-700">
-    You can use <span class="font-semibold">shapeWorker</span> directly in the browser via a CDN link. 
-    Simply add the following script tag inside your <code>&lt;head&gt;</code> or before the closing <code>&lt;/body&gt;</code> tag:
-  </p>
+  <!-- Examples Section -->
+  <section id="examples" class="scroll-mt-24 max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12 space-y-10">
+    <h2 class="text-2xl sm:text-3xl font-bold text-white text-center">Examples</h2>
 
-    <h3 class="text-xl font-semibold text-indigo-600 pt-4">CDN Usage</h3>
-    <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
-&lt;script src="https://mahmud-links.pxxl.xyz/shapeWorker.js"&gt;&lt;/script&gt;
-    </code></pre>
-    <p class="mt-4 text-gray-600">
-      After including the script, you can directly access all classes such as 
-      <code>Square</code>, <code>Rectangle</code>, <code>Circle</code>, 
-      <code>Parallelogram</code>, and <code>Triangle</code>.
-    </p>
-  </div>
-</section>
-    <!-- Square -->
-    <section class="bg-white rounded-2xl shadow p-6">
-      <h3 class="text-2xl font-semibold text-indigo-600">Square</h3>
-      <p class="mt-2 text-gray-700">Represents a square defined by a single side length.</p>
-      <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
-const s = new Square(5);
-s.perimeter(); // 20
-s.area();      // 25
-      </code></pre>
-      <ul class="list-disc pl-6 mt-4 text-gray-600">
-        <li><code>perimeter()</code> → Returns the perimeter of the square</li>
-        <li><code>area()</code> → Returns the area of the square</li>
-      </ul>
-    </section>
+    <!-- 2D Shapes -->
+    <h3 class="text-xl sm:text-2xl font-bold text-white text-center mt-4">2D Shapes</h3>
+    <div class="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 mt-4">
+      <div class="bg-white rounded-2xl shadow p-5 sm:p-6">
+        <h3 class="text-2xl font-semibold text-indigo-600">Square</h3>
+        <p class="mt-2 text-gray-700">A quadrilateral with all sides equal.</p>
+        <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>const square = new ShapeWorker("square", 5);
+square.area();       // 25
+square.perimeter();  // 20</code></pre>
+        <ul class="list-disc pl-6 mt-4 text-gray-600">
+          <li><code>area()</code> → Returns side × side</li>
+          <li><code>perimeter()</code> → Returns 4 × side</li>
+        </ul>
+      </div>
 
-    <!-- Rectangle -->
-    <section class="bg-white rounded-2xl shadow p-6">
-      <h3 class="text-2xl font-semibold text-indigo-600">Rectangle</h3>
-      <p class="mt-2 text-gray-700">Represents a rectangle defined by width (<code>x</code>) and height (<code>y</code>).</p>
-      <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
-const r = new Rectangle(4, 6);
-r.perimeter(); // 20
-r.area();      // 24
-      </code></pre>
-      <ul class="list-disc pl-6 mt-4 text-gray-600">
-        <li><code>perimeter()</code> → Returns the perimeter of the rectangle</li>
-        <li><code>area()</code> → Returns the area of the rectangle</li>
-      </ul>
-    </section>
+      <div class="bg-white rounded-2xl shadow p-5 sm:p-6">
+        <h3 class="text-2xl font-semibold text-indigo-600">Rectangle</h3>
+        <p class="mt-2 text-gray-700">A quadrilateral with opposite sides equal.</p>
+        <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>const rectangle = new ShapeWorker("rectangle", 4, 6);
+rectangle.area();       // 24
+rectangle.perimeter();  // 20</code></pre>
+        <ul class="list-disc pl-6 mt-4 text-gray-600">
+          <li><code>area()</code> → Returns length × breadth</li>
+          <li><code>perimeter()</code> → Returns 2 × (length + breadth)</li>
+        </ul>
+      </div>
 
-    <!-- Circle -->
-    <section class="bg-white rounded-2xl shadow p-6">
-      <h3 class="text-2xl font-semibold text-indigo-600">Circle</h3>
-      <p class="mt-2 text-gray-700">Represents a circle defined by radius (<code>x</code>).</p>
-      <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
-const c = new Circle(7);
-c.circumference(); // ~43.98
-c.area();          // ~153.94
-      </code></pre>
-      <ul class="list-disc pl-6 mt-4 text-gray-600">
-        <li><code>circumference()</code> → Returns the circumference of the circle</li>
-        <li><code>area()</code> → Returns the area of the circle</li>
-      </ul>
-    </section>
+      <div class="bg-white rounded-2xl shadow p-5 sm:p-6">
+        <h3 class="text-2xl font-semibold text-indigo-600">Circle</h3>
+        <p class="mt-2 text-gray-700">A round plane figure defined by its radius.</p>
+        <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>const circle = new ShapeWorker("circle", 3);
+circle.area();          // 28.274...
+circle.circumference(); // 18.849...</code></pre>
+        <ul class="list-disc pl-6 mt-4 text-gray-600">
+          <li><code>area()</code> → Returns π × r²</li>
+          <li><code>circumference()</code> → Returns 2 × π × r</li>
+        </ul>
+      </div>
 
-    <!-- Parallelogram -->
-    <section class="bg-white rounded-2xl shadow p-6">
-      <h3 class="text-2xl font-semibold text-indigo-600">Parallelogram</h3>
-      <p class="mt-2 text-gray-700">Represents a parallelogram defined by base (<code>x</code>), side (<code>y</code>), and either height or angle.</p>
-      <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
-const p1 = new Parallelogram(8, 5, 4);     // using height
-p1.area();      // 32
+      <div class="bg-white rounded-2xl shadow p-5 sm:p-6">
+        <h3 class="text-2xl font-semibold text-indigo-600">Triangle</h3>
+        <p class="mt-2 text-gray-700">A polygon with three sides. Supports base/height or Heron's formula.</p>
+        <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>const triangle1 = new ShapeWorker("triangle", 10, 6, 4);
+triangle1.area(); // 12
 
-const p2 = new Parallelogram(8, 5, "60deg"); // using angle
-p2.area();      // ~34.641016
-      </code></pre>
-      <ul class="list-disc pl-6 mt-4 text-gray-600">
-        <li><code>perimeter()</code> → Returns the perimeter</li>
-        <li><code>area()</code> → Returns the area (uses either height or angle)</li>
-      </ul>
-    </section>
+const triangle2 = new ShapeWorker("triangle", 10, 6, "45deg");
+triangle2.area(); // ~21.213</code></pre>
+        <ul class="list-disc pl-6 mt-4 text-gray-600">
+          <li><code>area()</code> → Returns area based on given sides or angle</li>
+        </ul>
+      </div>
 
-    <!-- Triangle -->
-    <section class="bg-white rounded-2xl shadow p-6">
-      <h3 class="text-2xl font-semibold text-indigo-600">Triangle</h3>
-      <p class="mt-2 text-gray-700">Represents a triangle defined by base (<code>x</code>), side (<code>y</code>), and either height or angle.</p>
-      <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
-const t1 = new Triangle(10, 6, 4);        // using height
-t1.area();      // 12
+      <div class="bg-white rounded-2xl shadow p-5 sm:p-6">
+        <h3 class="text-2xl font-semibold text-indigo-600">Parallelogram</h3>
+        <p class="mt-2 text-gray-700">A quadrilateral with opposite sides parallel.</p>
+        <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>const parallelogram = new ShapeWorker("parallelogram", 8, 5, "30deg");
+parallelogram.area();      // 20
+parallelogram.perimeter(); // 26</code></pre>
+        <ul class="list-disc pl-6 mt-4 text-gray-600">
+          <li><code>area()</code> → Returns base × height or base × side × sin(angle)</li>
+          <li><code>perimeter()</code> → Returns 2 × (base + side)</li>
+        </ul>
+      </div>
+    </div>
 
-const t2 = new Triangle(10, 6, "45deg");  // using angle
-t2.area();      // ~21.213203
-      </code></pre>
-      <ul class="list-disc pl-6 mt-4 text-gray-600">
-        <li><code>perimeter()</code> → Returns a placeholder (not fully implemented)</li>
-        <li><code>area()</code> → Returns the area (uses either height or angle)</li>
-      </ul>
-    </section>
-    <!-- Sphere -->
-<section class="bg-white rounded-2xl shadow p-6">
-  <h3 class="text-2xl font-semibold text-indigo-600">Sphere</h3>
-  <p class="mt-2 text-gray-700">Represents a sphere defined by its radius.</p>
-  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
-const s = new Sphere(5);
-s.surfaceArea();   // 314.159...
-s.volume();        // 523.598...
-  </code></pre>
-  <ul class="list-disc pl-6 mt-4 text-gray-600">
-    <li><code>surfaceArea()</code> → Calculates total surface area</li>
-    <li><code>volume()</code> → Calculates volume</li>
-  </ul>
-</section>
+    <!-- 3D Shapes -->
+    <h3 class="text-xl sm:text-2xl font-bold text-white text-center mt-8">3D Shapes</h3>
+    <div class="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 mt-4">
+      <div class="bg-white rounded-2xl shadow p-5 sm:p-6">
+        <h3 class="text-2xl font-semibold text-indigo-600">Sphere</h3>
+        <p class="mt-2 text-gray-700">A perfectly round 3D object.</p>
+        <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>const sphere = new ShapeWorker("sphere", 5);
+sphere.surfaceArea(); // 314.159...
+sphere.volume();      // 523.598...</code></pre>
+        <ul class="list-disc pl-6 mt-4 text-gray-600">
+          <li><code>surfaceArea()</code> → Returns 4 × π × r²</li>
+          <li><code>volume()</code> → Returns (4/3) × π × r³</li>
+        </ul>
+      </div>
 
-<!-- Cylinder -->
-<section class="bg-white rounded-2xl shadow p-6">
-  <h3 class="text-2xl font-semibold text-indigo-600">Cylinder</h3>
-  <p class="mt-2 text-gray-700">Represents a cylinder defined by its radius and height.</p>
-  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
-const c = new Cylinder(3, 7);
-c.surfaceArea();   // 188.495...
-c.volume();        // 197.920...
-  </code></pre>
-  <ul class="list-disc pl-6 mt-4 text-gray-600">
-    <li><code>surfaceArea()</code> → Calculates total surface area</li>
-    <li><code>volume()</code> → Calculates volume</li>
-  </ul>
-</section>
+      <div class="bg-white rounded-2xl shadow p-5 sm:p-6">
+        <h3 class="text-2xl font-semibold text-indigo-600">Cylinder</h3>
+        <p class="mt-2 text-gray-700">A solid with circular ends.</p>
+        <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>const cylinder = new ShapeWorker("cylinder", 3, 7);
+cylinder.surfaceArea(); // 188.495...
+cylinder.volume();      // 197.920...</code></pre>
+        <ul class="list-disc pl-6 mt-4 text-gray-600">
+          <li><code>surfaceArea()</code> → Returns 2πr(h + r)</li>
+          <li><code>volume()</code> → Returns πr²h</li>
+        </ul>
+      </div>
 
-<!-- Cube -->
-<section class="bg-white rounded-2xl shadow p-6">
-  <h3 class="text-2xl font-semibold text-indigo-600">Cube</h3>
-  <p class="mt-2 text-gray-700">Represents a cube defined by the length of its side.</p>
-  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
-const q = new Cube(4);
-q.surfaceArea();   // 96
-q.volume();        // 64
-  </code></pre>
-  <ul class="list-disc pl-6 mt-4 text-gray-600">
-    <li><code>surfaceArea()</code> → Calculates total surface area</li>
-    <li><code>volume()</code> → Calculates volume</li>
-  </ul>
-</section>
+      <div class="bg-white rounded-2xl shadow p-5 sm:p-6">
+        <h3 class="text-2xl font-semibold text-indigo-600">Cube</h3>
+        <p class="mt-2 text-gray-700">A solid with six equal square faces.</p>
+        <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>const cube = new ShapeWorker("cube", 4);
+cube.surfaceArea(); // 96
+cube.volume();      // 64</code></pre>
+        <ul class="list-disc pl-6 mt-4 text-gray-600">
+          <li><code>surfaceArea()</code> → Returns 6 × side²</li>
+          <li><code>volume()</code> → Returns side³</li>
+        </ul>
+      </div>
 
-<!-- Cuboid -->
-<section class="bg-white rounded-2xl shadow p-6">
-  <h3 class="text-2xl font-semibold text-indigo-600">Cuboid</h3>
-  <p class="mt-2 text-gray-700">Represents a cuboid (rectangular box) defined by length, width, and height.</p>
-  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
-const b = new Cuboid(2, 3, 4);
-b.surfaceArea();   // 52
-b.volume();        // 24
-  </code></pre>
-  <ul class="list-disc pl-6 mt-4 text-gray-600">
-    <li><code>surfaceArea()</code> → Calculates total surface area</li>
-    <li><code>volume()</code> → Calculates volume</li>
-  </ul>
-</section>
+      <div class="bg-white rounded-2xl shadow p-5 sm:p-6">
+        <h3 class="text-2xl font-semibold text-indigo-600">Cuboid</h3>
+        <p class="mt-2 text-gray-700">A rectangular solid.</p>
+        <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>const cuboid = new ShapeWorker("cuboid", 2, 3, 4);
+cuboid.surfaceArea(); // 52
+cuboid.volume();      // 24</code></pre>
+        <ul class="list-disc pl-6 mt-4 text-gray-600">
+          <li><code>surfaceArea()</code> → Returns 2(lb + bh + hl)</li>
+          <li><code>volume()</code> → Returns l × b × h</li>
+        </ul>
+      </div>
 
-<!-- Cone -->
-<section class="bg-white rounded-2xl shadow p-6">
-  <h3 class="text-2xl font-semibold text-indigo-600">Cone</h3>
-  <p class="mt-2 text-gray-700">Represents a cone defined by its radius and height.</p>
-  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
-const n = new Cone(3, 5);
-n.surfaceArea();   // 83.229...
-n.volume();        // 47.123...
-  </code></pre>
-  <ul class="list-disc pl-6 mt-4 text-gray-600">
-    <li><code>surfaceArea()</code> → Calculates total surface area</li>
-    <li><code>volume()</code> → Calculates volume</li>
-  </ul>
-</section>
-<!-- Trapezium -->
-<section class="bg-white rounded-2xl shadow p-6">
-  <h3 class="text-2xl font-semibold text-indigo-600">Trapezium</h3>
-  <p class="mt-2 text-gray-700">Represents a trapezium defined by two parallel sides (<code>a</code>, <code>b</code>) and its height (<code>h</code>).</p>
-  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
-const tp = new Trapezium(8, 5, 4);
-tp.area();        // 26
-tp.perimeter();   // placeholder message
-  </code></pre>
-  <ul class="list-disc pl-6 mt-4 text-gray-600">
-    <li><code>perimeter()</code> → Returns a placeholder (not fully implemented)</li>
-    <li><code>area()</code> → Calculates the area using 0.5 × (a + b) × h</li>
-  </ul>
-</section>
-
-<!-- Prism -->
-<section class="bg-white rounded-2xl shadow p-6">
-  <h3 class="text-2xl font-semibold text-indigo-600">Prism</h3>
-  <p class="mt-2 text-gray-700">Represents a prism defined by the area of its base (<code>BaseArea</code>) and height (<code>h</code>).</p>
-  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
-const pr = new Prism(20, 10);
-pr.volume();      // 200
-pr.surfaceArea ();   // placeholder message
-  </code></pre>
-  <ul class="list-disc pl-6 mt-4 text-gray-600">
-    <li><code>surfaceArea()</code> → Returns a placeholder (not yet implemented)</li>
-    <li><code>volume()</code> → Calculates the volume of the prism as BaseArea × h</li>
-  </ul>
-</section>
-  </main>
+      <div class="bg-white rounded-2xl shadow p-5 sm:p-6">
+        <h3 class="text-2xl font-semibold text-indigo-600">Cone</h3>
+        <p class="mt-2 text-gray-700">A solid with a circular base tapering to a point.</p>
+        <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>const cone = new ShapeWorker("cone", 3, 8);
+cone.surfaceArea(); // 103.672...
+cone.volume();      // 75.398...</code></pre>
+        <ul class="list-disc pl-6 mt-4 text-gray-600">
+          <li><code>surfaceArea()</code> → Returns πr(l + r)</li>
+          <li><code>volume()</code> → Returns (1/3)πr²h</li>
+        </ul>
+      </div>
+      <div class="bg-white rounded-2xl shadow p-6">
+        <h3 class="text-2xl font-semibold text-indigo-600">Prism</h3>
+        <p class="mt-2 text-gray-700">Represents a prism defined by the area of its base (<code>BaseArea</code>) and height (<code>h</code>).</p>
+        <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>const prism = new ShapeWorker("prism", 20, 10);
+prism.volume();      // 200
+prism.surfaceArea ();   // placeholder message</code></pre>
+        <ul class="list-disc pl-6 mt-4 text-gray-600">
+          <li><code>surfaceArea()</code> → Returns a placeholder (not yet implemented)</li>
+          <li><code>volume()</code> → Calculates the volume of the prism as BaseArea × h</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-indigo-600 text-white mt-16">
-    <div class="max-w-6xl mx-auto px-6 py-6 text-center">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 text-center">
       <p>&copy; 2025 shapeWorker. Built with 💜 and Tailwind CSS.</p>
     </div>
   </footer>
+
+  <script>
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const open = menu.classList.toggle('hidden');
+        btn.setAttribute('aria-expanded', String(!open));
+      });
+    }
+  </script>
 </body>
 </html>
