@@ -1,209 +1,169 @@
-class Square {
-  constructor(x){
-    this._side = x
-  }
-  
-  perimeter() {
-    return 4 * this._side
-  }
-  
-  area() {
-    return this._side ** 2
-  }
-}
+class ShapeWorker {
+  constructor(shape, ...params) {
+    this.shape = String(shape).toLowerCase();
+    this.params = params;
 
-class Rectangle{
-  constructor(x,y) {
-    this._x = x
-    this._y = y
-  }
-  
-  perimeter() {
-    return 2 * (this._x + this._y)
-  }
-  
-  area() {
-    return this._x * this._y
-  }
-}
+    // parameter count checks
+    const expected = {
+      square: 1,
+      rectangle: 2,
+      circle: 1,
+      parallelogram: 3,
+      triangle: 3,
+      trapezium: 3,
+      sphere: 1,
+      cylinder: 2,
+      cube: 1,
+      cuboid: 3,
+      cone: 2,
+      prism: 2,
+    };
 
-class Circle {
-  constructor(x){
-    this._radius = x
+    if (!(this.shape in expected)) {
+      throw new Error(`Unsupported shape "${shape}"`);
+    }
+    if (params.length !== expected[this.shape]) {
+      throw new Error(
+        `Shape "${shape}" expects ${expected[this.shape]} parameters, got ${params.length}`
+      );
+    }
   }
-  
+
+  area() {
+    switch (this.shape) {
+      case "square": {
+        const [x] = this.params;
+        return x ** 2;
+      }
+      case "rectangle": {
+        const [x, y] = this.params;
+        return x * y;
+      }
+      case "circle": {
+        const [r] = this.params;
+        return Math.PI * (r ** 2);
+      }
+      case "parallelogram": {
+        const [x, y, p3] = this.params;
+        if (typeof p3 === "number") return x * p3; // base * height
+        if (typeof p3 === "string") {
+          const deg = Number(String(p3).replace("deg", ""));
+          return y * x * Math.sin(deg * Math.PI / 180);
+        }
+        return "No Object input so no value for theta or h and area can't be calculated";
+      }
+      case "triangle": {
+        const [a, b, p3] = this.params;
+        if (typeof p3 === "number") return 0.5 * b * p3; // 1/2 * base * height
+        if (typeof p3 === "string") {
+          const deg = Number(String(p3).replace("deg", ""));
+          return 0.5 * a * b * Math.sin(deg * Math.PI / 180);
+        }
+        return "invalid input so area can't be calculated";
+      }
+      case "trapezium": {
+        const [a, b, h] = this.params;
+        return 0.5 * (a + b) * h;
+      }
+      default:
+        return "Area not available for this shape";
+    }
+  }
+
+  perimeter() {
+    switch (this.shape) {
+      case "square": {
+        const [x] = this.params;
+        return 4 * x;
+      }
+      case "rectangle": {
+        const [x, y] = this.params;
+        return 2 * (x + y);
+      }
+      case "circle": {
+        const [r] = this.params;
+        return 2 * Math.PI * r;
+      }
+      case "parallelogram": {
+        const [x, y] = this.params;
+        return 2 * (x + y);
+      }
+      case "triangle":
+        return "Getting the perimeter for a triangle is crazy and i cant go on the intricacies for now 😪";
+      case "trapezium":
+        return "Getting the perimeter for a Trapezium  is kinda ambigious and i can't go on the    intricacies for now 😪";
+      default:
+        return "Perimeter not available for this shape";
+    }
+  }
+
   circumference() {
-    return 2 * Math.PI * this._radius
+    if (this.shape === "circle") {
+      const [r] = this.params;
+      return 2 * Math.PI * r;
+    }
+    return "Circumference not available for this shape";
   }
-  
-  area() {
-    return Math.PI * (this._radius ** 2)
-  }
-}
 
-class Parallelogram{
-  constructor(x, y, param3){
-    this._x = x 
-    this._y = y
-    if (typeof param3 == "string") {
-     let degreeString = param3.replace('deg', '');
-    this._theta = Number(degreeString);
-    } else if(typeof param3 == 'number'){
-      this._h = param3
-    } else {
-      return 'type of 3rd param not supported'
+  surfaceArea() {
+    switch (this.shape) {
+      case "sphere": {
+        const [r] = this.params;
+        return 4 * Math.PI * r * r;
+      }
+      case "cylinder": {
+        const [r, h] = this.params;
+        return 2 * Math.PI * r * (h + r);
+      }
+      case "cube": {
+        const [x] = this.params;
+        return 6 * x * x;
+      }
+      case "cuboid": {
+        const [x, y, z] = this.params;
+        return 2 * (x * y + x * z + y * z);
+      }
+      case "cone": {
+        const [r, h] = this.params;
+        return Math.PI * r * (Math.sqrt(r ** 2 + h ** 2) + r);
+      }
+      case "prism":
+        return "Getting the perimeter for a Prism is crazy and i cant go on the intricacies for now 😪";
+      default:
+        return "Surface area not available for this shape";
     }
   }
-  
-  perimeter() {
-    return 2 * (this._x + this._y)
-  }
-  
-  area() {
-    let areaVal = Number()
-    if (this._h) {
-      return this._x * this._h
-    } else if(this._theta){
-      return this._y * this._x * Math.sin(this._theta * (Math.PI / 180))
-    } else {
-      return "No Object input so no value for theta or h and area can't be calculated"
+
+  volume() {
+    switch (this.shape) {
+      case "sphere": {
+        const [r] = this.params;
+        return (4 * Math.PI * (r ** 3)) / 3;
+      }
+      case "cylinder": {
+        const [r, h] = this.params;
+        return Math.PI * (r ** 2) * h;
+      }
+      case "cube": {
+        const [x] = this.params;
+        return x ** 3;
+      }
+      case "cuboid": {
+        const [x, y, z] = this.params;
+        return x * y * z;
+      }
+      case "cone": {
+        const [r, h] = this.params;
+        return (Math.PI * (r ** 2) * h) / 3;
+      }
+      case "prism": {
+        const [baseArea, h] = this.params;
+        return baseArea * h;
+      }
+      default:
+        return "Volume not available for this shape";
     }
   }
 }
 
-class Triangle {
-  constructor(a, b, param3){
-    this._x = a
-    this._y = b
-    if (typeof param3 == "string") {
-     let degreeString = param3.replace('deg', '');
-    this._theta = Number(degreeString);
-    } else if(typeof param3 == 'number'){
-      this._h = param3
-    } else {
-      return 'type of 3rd param not supported'
-    }
-  }
-  
-  perimeter() {
-    return "Getting the perimeter for a triangle is crazy and i cant go on the intricacies for now 😪"
-  }
-  
-  area() {
-    let areaVal = Number()
-    if (this._h) {
-      return this._y * this._h * 0.5
-    } else if(this._theta){
-      return 0.5 * this._y * this._x * Math.sin(this._theta * (Math.PI / 180))
-    } else {
-      return "invalid input so area can't be calculated"
-    }
-  }
-}
-
-class Sphere {
-  constructor(x){
-    this._radius = x
-  }
-  
-  surfaceArea() {
-    return 4 * Math.PI * this._radius * this._radius
-  }
-  
-  volume() {
-    return 4 * Math.PI * (this._radius ** 3) / 3
-  }
-}
-
-class Cylinder {
-  constructor(x, h){
-    this._radius = x
-    this._height = h
-  }
-  
-  surfaceArea() {
-    return 2 * Math.PI * this._radius * (this._height + this._radius)
-  }
-
-  volume() {
-    return Math.PI * (this._radius ** 2) * this._height
-  }
-}
-
-class Cube {
-  constructor(x){
-    this._side = x
-  }
-  
-  surfaceArea() {
-    return 6 * this._side * this._side
-  }
-  
-  volume() {
-    return this._side ** 3
-  }
-}
-
-class Cuboid{
-  constructor(x,y,z) {
-    this._x = x
-    this._y = y
-    this._z = z
-  }
-
-  surfaceArea() {
-    return 2 * ((this._x * this._y) + (this._x * this._z) + (this._y * this._z))
-  }
-  
-  volume() {
-    return this._x * this._y * this._z
-  }
-}
-
-class Cone {
-  constructor(r, h){
-    this._radius = r
-    this._height = h
-  }
-  
-  surfaceArea() {
-    return Math.PI * this._radius * (Math.sqrt((this._radius ** 2) + (this._height ** 2)) + this._radius)
-  }
-
-  volume() {
-    return (Math.PI * (this._radius ** 2) * this._height) / 3
-  }
-}
-
-class Trapezium{
-  constructor(a, b, h) {
-    this._x = a
-    this._y = b
-    this._h = h
-  }
-  
-  perimeter() {
-    return "Getting the perimeter for a Trapezium  is kinda ambigious and i can't go on the    intricacies for now 😪"
-  }
-  
-  area() {
-    return 0.5 * (this._x + this._y) * this._h
-  }
-}
-
-class Prism{
-  constructor(BaseArea,h) {
-    this._baseArea = BaseArea
-    this._height = h
-  }
-  
-  surfaceArea() {
-    return "Getting the perimeter for a Prism is crazy and i cant go on the intricacies for now 😪"
-  
-  }
-  
-  volume() {
-    return this._baseArea * this._height
-  }
-}
-
+export default ShapeWorker;
