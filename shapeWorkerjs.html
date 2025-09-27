@@ -205,6 +205,35 @@ n.volume();        // 47.123...
     <li><code>volume()</code> → Calculates volume</li>
   </ul>
 </section>
+<!-- Trapezium -->
+<section class="bg-white rounded-2xl shadow p-6">
+  <h3 class="text-2xl font-semibold text-indigo-600">Trapezium</h3>
+  <p class="mt-2 text-gray-700">Represents a trapezium defined by two parallel sides (<code>a</code>, <code>b</code>) and its height (<code>h</code>).</p>
+  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
+const tp = new Trapezium(8, 5, 4);
+tp.area();        // 26
+tp.perimeter();   // placeholder message
+  </code></pre>
+  <ul class="list-disc pl-6 mt-4 text-gray-600">
+    <li><code>perimeter()</code> → Returns a placeholder (not fully implemented)</li>
+    <li><code>area()</code> → Calculates the area using 0.5 × (a + b) × h</li>
+  </ul>
+</section>
+
+<!-- Prism -->
+<section class="bg-white rounded-2xl shadow p-6">
+  <h3 class="text-2xl font-semibold text-indigo-600">Prism</h3>
+  <p class="mt-2 text-gray-700">Represents a prism defined by the area of its base (<code>BaseArea</code>) and height (<code>h</code>).</p>
+  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
+const pr = new Prism(20, 10);
+pr.volume();      // 200
+pr.surfaceArea ();   // placeholder message
+  </code></pre>
+  <ul class="list-disc pl-6 mt-4 text-gray-600">
+    <li><code>surfaceArea()</code> → Returns a placeholder (not yet implemented)</li>
+    <li><code>volume()</code> → Calculates the volume of the prism as BaseArea × h</li>
+  </ul>
+</section>
   </main>
 
   <!-- Footer -->

@@ -174,3 +174,36 @@ class Cone {
     return (Math.PI * (this._radius ** 2) * this._height) / 3
   }
 }
+
+class Trapezium{
+  constructor(a, b, h) {
+    this._x = a
+    this._y = b
+    this._h = h
+  }
+  
+  perimeter() {
+    return "Getting the perimeter for a Trapezium  is kinda ambigious and i can't go on the    intricacies for now 😪"
+  }
+  
+  area() {
+    return 0.5 * (this._x + this._y) * this._h
+  }
+}
+
+class Prism{
+  constructor(BaseArea,h) {
+    this._baseArea = BaseArea
+    this._height = h
+  }
+  
+  surfaceArea() {
+    return "Getting the perimeter for a Prism is crazy and i cant go on the intricacies for now 😪"
+  
+  }
+  
+  volume() {
+    return this._baseArea * this._height
+  }
+}
+
