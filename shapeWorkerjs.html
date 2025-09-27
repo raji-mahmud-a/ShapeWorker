@@ -131,6 +131,80 @@ t2.area();      // ~21.213203
         <li><code>area()</code> → Returns the area (uses either height or angle)</li>
       </ul>
     </section>
+    <!-- Sphere -->
+<section class="bg-white rounded-2xl shadow p-6">
+  <h3 class="text-2xl font-semibold text-indigo-600">Sphere</h3>
+  <p class="mt-2 text-gray-700">Represents a sphere defined by its radius.</p>
+  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
+const s = new Sphere(5);
+s.surfaceArea();   // 314.159...
+s.volume();        // 523.598...
+  </code></pre>
+  <ul class="list-disc pl-6 mt-4 text-gray-600">
+    <li><code>surfaceArea()</code> → Calculates total surface area</li>
+    <li><code>volume()</code> → Calculates volume</li>
+  </ul>
+</section>
+
+<!-- Cylinder -->
+<section class="bg-white rounded-2xl shadow p-6">
+  <h3 class="text-2xl font-semibold text-indigo-600">Cylinder</h3>
+  <p class="mt-2 text-gray-700">Represents a cylinder defined by its radius and height.</p>
+  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
+const c = new Cylinder(3, 7);
+c.surfaceArea();   // 188.495...
+c.volume();        // 197.920...
+  </code></pre>
+  <ul class="list-disc pl-6 mt-4 text-gray-600">
+    <li><code>surfaceArea()</code> → Calculates total surface area</li>
+    <li><code>volume()</code> → Calculates volume</li>
+  </ul>
+</section>
+
+<!-- Cube -->
+<section class="bg-white rounded-2xl shadow p-6">
+  <h3 class="text-2xl font-semibold text-indigo-600">Cube</h3>
+  <p class="mt-2 text-gray-700">Represents a cube defined by the length of its side.</p>
+  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
+const q = new Cube(4);
+q.surfaceArea();   // 96
+q.volume();        // 64
+  </code></pre>
+  <ul class="list-disc pl-6 mt-4 text-gray-600">
+    <li><code>surfaceArea()</code> → Calculates total surface area</li>
+    <li><code>volume()</code> → Calculates volume</li>
+  </ul>
+</section>
+
+<!-- Cuboid -->
+<section class="bg-white rounded-2xl shadow p-6">
+  <h3 class="text-2xl font-semibold text-indigo-600">Cuboid</h3>
+  <p class="mt-2 text-gray-700">Represents a cuboid (rectangular box) defined by length, width, and height.</p>
+  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
+const b = new Cuboid(2, 3, 4);
+b.surfaceArea();   // 52
+b.volume();        // 24
+  </code></pre>
+  <ul class="list-disc pl-6 mt-4 text-gray-600">
+    <li><code>surfaceArea()</code> → Calculates total surface area</li>
+    <li><code>volume()</code> → Calculates volume</li>
+  </ul>
+</section>
+
+<!-- Cone -->
+<section class="bg-white rounded-2xl shadow p-6">
+  <h3 class="text-2xl font-semibold text-indigo-600">Cone</h3>
+  <p class="mt-2 text-gray-700">Represents a cone defined by its radius and height.</p>
+  <pre class="bg-gray-900 text-green-200 p-4 rounded-lg mt-4 overflow-x-auto"><code>
+const n = new Cone(3, 5);
+n.surfaceArea();   // 83.229...
+n.volume();        // 47.123...
+  </code></pre>
+  <ul class="list-disc pl-6 mt-4 text-gray-600">
+    <li><code>surfaceArea()</code> → Calculates total surface area</li>
+    <li><code>volume()</code> → Calculates volume</li>
+  </ul>
+</section>
   </main>
 
   <!-- Footer -->

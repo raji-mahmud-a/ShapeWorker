@@ -64,7 +64,7 @@ class Parallelogram{
     if (this._h) {
       return this._x * this._h
     } else if(this._theta){
-      return (this._y * this._x * Math.sin(this._theta * (Math.PI / 180))).toFixed(6)
+      return this._y * this._x * Math.sin(this._theta * (Math.PI / 180))
     } else {
       return "No Object input so no value for theta or h and area can't be calculated"
     }
@@ -94,9 +94,83 @@ class Triangle {
     if (this._h) {
       return this._y * this._h * 0.5
     } else if(this._theta){
-      return (0.5 * this._y * this._x * Math.sin(this._theta * (Math.PI / 180))).toFixed(6)
+      return 0.5 * this._y * this._x * Math.sin(this._theta * (Math.PI / 180))
     } else {
-      return "No Object input so no value for theta or h and area can't be calculated"
+      return "invalid input so area can't be calculated"
     }
+  }
+}
+
+class Sphere {
+  constructor(x){
+    this._radius = x
+  }
+  
+  surfaceArea() {
+    return 4 * Math.PI * this._radius * this._radius
+  }
+  
+  volume() {
+    return 4 * Math.PI * (this._radius ** 3) / 3
+  }
+}
+
+class Cylinder {
+  constructor(x, h){
+    this._radius = x
+    this._height = h
+  }
+  
+  surfaceArea() {
+    return 2 * Math.PI * this._radius * (this._height + this._radius)
+  }
+
+  volume() {
+    return Math.PI * (this._radius ** 2) * this._height
+  }
+}
+
+class Cube {
+  constructor(x){
+    this._side = x
+  }
+  
+  surfaceArea() {
+    return 6 * this._side * this._side
+  }
+  
+  volume() {
+    return this._side ** 3
+  }
+}
+
+class Cuboid{
+  constructor(x,y,z) {
+    this._x = x
+    this._y = y
+    this._z = z
+  }
+
+  surfaceArea() {
+    return 2 * ((this._x * this._y) + (this._x * this._z) + (this._y * this._z))
+  }
+  
+  volume() {
+    return this._x * this._y * this._z
+  }
+}
+
+class Cone {
+  constructor(r, h){
+    this._radius = r
+    this._height = h
+  }
+  
+  surfaceArea() {
+    return Math.PI * this._radius * (Math.sqrt((this._radius ** 2) + (this._height ** 2)) + this._radius)
+  }
+
+  volume() {
+    return (Math.PI * (this._radius ** 2) * this._height) / 3
   }
 }
