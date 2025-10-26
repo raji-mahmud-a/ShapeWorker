@@ -207,3 +207,5 @@ class Prism{
   }
 }
 
+
+module.exports = {  Square,  Rectangle,  Circle,  Parallelogram,  Triangle,  Sphere,  Cylinder,  Cube,  Cuboid,  Cone,  Trapezium,  Prism};
